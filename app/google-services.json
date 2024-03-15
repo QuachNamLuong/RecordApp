@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "814975057051",
+    "project_id": "register-446fa",
+    "storage_bucket": "register-446fa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:814975057051:android:9c6a2aaf3dae9d46b19a3e",
+        "android_client_info": {
+          "package_name": "com.team18.recordapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDLSHv1SVEpQI8_z6j5XHftTALgLwQRrw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
