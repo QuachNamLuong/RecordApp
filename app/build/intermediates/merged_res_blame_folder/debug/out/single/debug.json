@@ -1,0 +1,166 @@
+[
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\drawable_ss.png.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\drawable\\ss.png"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\drawable_pngwin.png.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\drawable\\pngwin.png"
+    },
+    {
+        "merged": "com.team18.recordapp-merged_res-31:/layout_activity_select_time.xml.flat",
+        "source": "com.team18.recordapp-main-33:/layout/activity_select_time.xml"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\drawable_pngwing.png.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\drawable\\pngwing.png"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\drawable_bluetoot.png.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\drawable\\bluetoot.png"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\drawable_baseline_mic_24.xml.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\drawable\\baseline_mic_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\layout_record_item.xml.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\layout\\record_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\layout_fragment_record.xml.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\layout\\fragment_record.xml"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\drawable_aaaaaaaaaa.png.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\drawable\\aaaaaaaaaa.png"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\drawable_ng_s3.png.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\drawable\\ng_s3.png"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\drawable_baseline_arrow_back_24.xml.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\drawable\\baseline_arrow_back_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\drawable_mnaaa.png.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\drawable\\mnaaa.png"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\drawable_om.png.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\drawable\\om.png"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\drawable_png.png.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\drawable\\png.png"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\drawable_pngwina.png.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\drawable\\pngwina.png"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\drawable_amks.png.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\drawable\\amks.png"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\xml_file_paths.xml.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\xml\\file_paths.xml"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\drawable_k.png.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\drawable\\k.png"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\menu_toolbar_menu.xml.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\menu\\toolbar_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\drawable_pngwwing.png.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\drawable\\pngwwing.png"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\layout_fragment_list_record.xml.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\layout\\fragment_list_record.xml"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\layout_activity_select_time.xml.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\layout\\activity_select_time.xml"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\drawable_ic_menu.xml.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\drawable\\ic_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\drawable_ic_btn_stop_record.xml.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\drawable\\ic_btn_stop_record.xml"
+    },
+    {
+        "merged": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-merged_res-31:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\quach\\.gradle\\daemon\\8.2\\com.team18.recordapp-main-33:\\mipmap-hdpi\\ic_launcher.webp"
+    }
+]

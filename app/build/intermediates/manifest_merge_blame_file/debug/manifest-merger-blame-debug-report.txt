@@ -1,0 +1,180 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.team18.recordapp"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+11-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:5:5-71
+11-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:5:22-68
+12    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+12-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:6:5-80
+12-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:6:22-77
+13    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+13-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:7:5-81
+13-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:7:22-78
+14
+15    <permission
+15-->[androidx.core:core:1.9.0] C:\Users\quach\.gradle\caches\transforms-3\16088aea6844a21f0ae8707202a192eb\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+16        android:name="com.team18.recordapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+16-->[androidx.core:core:1.9.0] C:\Users\quach\.gradle\caches\transforms-3\16088aea6844a21f0ae8707202a192eb\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+17        android:protectionLevel="signature" />
+17-->[androidx.core:core:1.9.0] C:\Users\quach\.gradle\caches\transforms-3\16088aea6844a21f0ae8707202a192eb\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+18
+19    <uses-permission android:name="com.team18.recordapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+19-->[androidx.core:core:1.9.0] C:\Users\quach\.gradle\caches\transforms-3\16088aea6844a21f0ae8707202a192eb\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+19-->[androidx.core:core:1.9.0] C:\Users\quach\.gradle\caches\transforms-3\16088aea6844a21f0ae8707202a192eb\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+20
+21    <application
+21-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:9:5-50:19
+22        android:allowBackup="true"
+22-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:10:9-35
+23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+23-->[androidx.core:core:1.9.0] C:\Users\quach\.gradle\caches\transforms-3\16088aea6844a21f0ae8707202a192eb\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+24        android:dataExtractionRules="@xml/data_extraction_rules"
+24-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:11:9-65
+25        android:debuggable="true"
+26        android:extractNativeLibs="false"
+27        android:fullBackupContent="@xml/backup_rules"
+27-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:12:9-54
+28        android:icon="@mipmap/ic_launcher"
+28-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:13:9-43
+29        android:label="@string/app_name"
+29-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:14:9-41
+30        android:roundIcon="@drawable/pngwing"
+30-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:15:9-46
+31        android:supportsRtl="true"
+31-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:16:9-35
+32        android:testOnly="true"
+33        android:theme="@style/Theme.RecordApp" >
+33-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:17:9-47
+34        <service
+34-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:19:9-22:47
+35            android:name="com.team18.recordapp.MyService"
+35-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:20:13-38
+36            android:enabled="true"
+36-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:21:13-35
+37            android:exported="true" />
+37-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:22:13-36
+38        <service
+38-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:23:9-25:40
+39            android:name="com.team18.recordapp.MyIntentService"
+39-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:24:13-44
+40            android:exported="false" />
+40-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:25:13-37
+41
+42        <activity
+42-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:27:9-29:40
+43            android:name="com.team18.recordapp.SelectTimeActivity"
+43-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:28:13-47
+44            android:exported="false" />
+44-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:29:13-37
+45
+46        <provider
+46-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:31:9-39:20
+47            android:name="androidx.core.content.FileProvider"
+47-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:32:13-62
+48            android:authorities="com.team18.recordapp.fileprovider"
+48-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:33:13-68
+49            android:exported="false"
+49-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:34:13-37
+50            android:grantUriPermissions="true" >
+50-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:35:13-47
+51            <meta-data
+51-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:36:13-38:54
+52                android:name="android.support.FILE_PROVIDER_PATHS"
+52-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:37:17-67
+53                android:resource="@xml/file_paths" />
+53-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:38:17-51
+54        </provider>
+55
+56        <activity
+56-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:41:9-49:20
+57            android:name="com.team18.recordapp.MainActivity"
+57-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:42:13-41
+58            android:exported="true" >
+58-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:43:13-36
+59            <intent-filter>
+59-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:44:13-48:29
+60                <action android:name="android.intent.action.MAIN" />
+60-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:45:17-69
+60-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:45:25-66
+61
+62                <category android:name="android.intent.category.LAUNCHER" />
+62-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:47:17-77
+62-->D:\code\Android\RecordApp-RecordAndListRecord\app\src\main\AndroidManifest.xml:47:27-74
+63            </intent-filter>
+64        </activity>
+65
+66        <provider
+66-->[androidx.emoji2:emoji2:1.2.0] C:\Users\quach\.gradle\caches\transforms-3\ea260942d8acadff20549e4d8b1553b4\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+67            android:name="androidx.startup.InitializationProvider"
+67-->[androidx.emoji2:emoji2:1.2.0] C:\Users\quach\.gradle\caches\transforms-3\ea260942d8acadff20549e4d8b1553b4\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+68            android:authorities="com.team18.recordapp.androidx-startup"
+68-->[androidx.emoji2:emoji2:1.2.0] C:\Users\quach\.gradle\caches\transforms-3\ea260942d8acadff20549e4d8b1553b4\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+69            android:exported="false" >
+69-->[androidx.emoji2:emoji2:1.2.0] C:\Users\quach\.gradle\caches\transforms-3\ea260942d8acadff20549e4d8b1553b4\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+70            <meta-data
+70-->[androidx.emoji2:emoji2:1.2.0] C:\Users\quach\.gradle\caches\transforms-3\ea260942d8acadff20549e4d8b1553b4\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+71                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+71-->[androidx.emoji2:emoji2:1.2.0] C:\Users\quach\.gradle\caches\transforms-3\ea260942d8acadff20549e4d8b1553b4\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+72                android:value="androidx.startup" />
+72-->[androidx.emoji2:emoji2:1.2.0] C:\Users\quach\.gradle\caches\transforms-3\ea260942d8acadff20549e4d8b1553b4\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+73            <meta-data
+73-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\quach\.gradle\caches\transforms-3\7537b831cd7e02c36f17372471ebcd05\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
+74                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+74-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\quach\.gradle\caches\transforms-3\7537b831cd7e02c36f17372471ebcd05\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
+75                android:value="androidx.startup" />
+75-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\quach\.gradle\caches\transforms-3\7537b831cd7e02c36f17372471ebcd05\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
+76            <meta-data
+76-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\quach\.gradle\caches\transforms-3\6aebe797d2fce5c8727f4e04e3cbbf9a\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+77                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+77-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\quach\.gradle\caches\transforms-3\6aebe797d2fce5c8727f4e04e3cbbf9a\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+78                android:value="androidx.startup" />
+78-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\quach\.gradle\caches\transforms-3\6aebe797d2fce5c8727f4e04e3cbbf9a\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+79        </provider>
+80
+81        <receiver
+81-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\quach\.gradle\caches\transforms-3\6aebe797d2fce5c8727f4e04e3cbbf9a\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+82            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+82-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\quach\.gradle\caches\transforms-3\6aebe797d2fce5c8727f4e04e3cbbf9a\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+83            android:directBootAware="false"
+83-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\quach\.gradle\caches\transforms-3\6aebe797d2fce5c8727f4e04e3cbbf9a\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+84            android:enabled="true"
+84-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\quach\.gradle\caches\transforms-3\6aebe797d2fce5c8727f4e04e3cbbf9a\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+85            android:exported="true"
+85-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\quach\.gradle\caches\transforms-3\6aebe797d2fce5c8727f4e04e3cbbf9a\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+86            android:permission="android.permission.DUMP" >
+86-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\quach\.gradle\caches\transforms-3\6aebe797d2fce5c8727f4e04e3cbbf9a\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+87            <intent-filter>
+87-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\quach\.gradle\caches\transforms-3\6aebe797d2fce5c8727f4e04e3cbbf9a\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+88                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+88-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\quach\.gradle\caches\transforms-3\6aebe797d2fce5c8727f4e04e3cbbf9a\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+88-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\quach\.gradle\caches\transforms-3\6aebe797d2fce5c8727f4e04e3cbbf9a\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+89            </intent-filter>
+90            <intent-filter>
+90-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\quach\.gradle\caches\transforms-3\6aebe797d2fce5c8727f4e04e3cbbf9a\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+91                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+91-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\quach\.gradle\caches\transforms-3\6aebe797d2fce5c8727f4e04e3cbbf9a\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+91-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\quach\.gradle\caches\transforms-3\6aebe797d2fce5c8727f4e04e3cbbf9a\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+92            </intent-filter>
+93            <intent-filter>
+93-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\quach\.gradle\caches\transforms-3\6aebe797d2fce5c8727f4e04e3cbbf9a\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+94                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+94-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\quach\.gradle\caches\transforms-3\6aebe797d2fce5c8727f4e04e3cbbf9a\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+94-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\quach\.gradle\caches\transforms-3\6aebe797d2fce5c8727f4e04e3cbbf9a\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+95            </intent-filter>
+96            <intent-filter>
+96-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\quach\.gradle\caches\transforms-3\6aebe797d2fce5c8727f4e04e3cbbf9a\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+97                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+97-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\quach\.gradle\caches\transforms-3\6aebe797d2fce5c8727f4e04e3cbbf9a\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+97-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\quach\.gradle\caches\transforms-3\6aebe797d2fce5c8727f4e04e3cbbf9a\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+98            </intent-filter>
+99        </receiver>
+100    </application>
+101
+102</manifest>
