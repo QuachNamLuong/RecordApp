@@ -25,10 +25,10 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/user_name"
+        android:id="@+id/tv_user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="User Name"
+        android:text="Guest"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="15sp"
@@ -36,10 +36,10 @@
         android:layout_marginBottom="5dp"/>
 
     <TextView
-        android:id="@+id/user_email"
+        android:id="@+id/tv_user_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="User Email"
+        android:text=""
         android:textColor="#323232"
         android:textSize="13sp"/>
 

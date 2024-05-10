@@ -2,6 +2,7 @@ package com.team18.recordapp.fragment;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,13 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.team18.recordapp.EnterOtpActivity;
 import com.team18.recordapp.MainActivity;
 import com.team18.recordapp.R;
 import androidx.annotation.NonNull;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -36,7 +35,6 @@ public class LogInFragment extends Fragment {
     Button btn;
     TextView edtEmail;
     TextView edtPassword;
-    Button showChart;
     TextView trueChartTxt;
     TextView falseChartTxt;
     CheckBox checkbox;
@@ -74,7 +72,6 @@ public class LogInFragment extends Fragment {
         btn = view.findViewById(R.id.logBtn);
         trueChartTxt = view.findViewById(R.id.trueChartTxt);
         falseChartTxt = view.findViewById(R.id.fasleChartTxt);
-        showChart = view.findViewById(R.id.chartbtn);
         checkbox = view.findViewById(R.id.checkbox);
         logUp = view.findViewById(R.id.logUpBtn);
         edtEmail = view.findViewById(R.id.username);
@@ -103,17 +100,11 @@ public class LogInFragment extends Fragment {
         });
 
 
-        showChart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
 
         logUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                goToLogUpActivity();
+                goToLogUpActivity();
             }
         });
 
@@ -136,50 +127,57 @@ public class LogInFragment extends Fragment {
         mProgress.show();
 
         String finalCheckEmail = checkEmail;
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(requireActivity(), new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            if (checkbox.isChecked()) {
-                                loginPrefsEditor.putBoolean("saveLogin", true);
-                                loginPrefsEditor.putString("email", email);
-                                loginPrefsEditor.putString("password", password);
-                                loginPrefsEditor.commit();
-                            } else {
-                                loginPrefsEditor.clear();
-                                loginPrefsEditor.commit();
-                            }
+        try {
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(requireActivity(), new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                if (checkbox.isChecked()) {
+                                    loginPrefsEditor.putBoolean("saveLogin", true);
+                                    loginPrefsEditor.putString("email", email);
+                                    loginPrefsEditor.putString("password", password);
+                                    loginPrefsEditor.commit();
+                                } else {
+                                    loginPrefsEditor.clear();
+                                    loginPrefsEditor.commit();
+                                }
 
-                            FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-                            if(firebaseUser != null && firebaseUser.getEmail().equals(finalCheckEmail)) {
-                                MainActivity mainActivity = (MainActivity) requireActivity();
-                                mainActivity.replaceFragment(RecordFragment.newInstance());
-                            } else {
-                                goToEnterOtpActivity(email, password);
-                            }
+                                FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+                                if(firebaseUser != null && firebaseUser.getEmail().equals(finalCheckEmail)) {
+                                    Intent intent = new Intent(requireContext(), MainActivity.class);
+                                    startActivity(intent);
+                                    requireActivity().finish();
+                                } else {
+                                    goToEnterOtpActivity(email, password);
+                                }
 
-                            mProgress.dismiss();
-                        } else {
-                            Toast.makeText(requireActivity(), "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                                mProgress.dismiss();
+                            } else {
+                                Toast.makeText(requireActivity(), "Authentication failed.",
+                                        Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                });
+                    });
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void goToEnterOtpActivity(String email, String password) {
         MainActivity mainActivity = (MainActivity) requireActivity();
         mainActivity.replaceFragment(EnterOtpFragment.newInstance(email, password));
     }
-//
+
 //    private void goToAudioSharingActivity() {
-//        Intent intent = new Intent(LogInActivity.this, AudioSharingActivity.class);
+//        Intent intent = new Intent(requireActivity(), AudioSharingActivity.class);
 //        startActivity(intent);
 //    }
-//
-//    private void goToLogUpActivity() {
-//        Intent intent = new Intent(this, LogUpActivity.class);
-//        startActivity(intent);
-//    }
+
+    private void goToLogUpActivity() {
+        MainActivity mainActivity = (MainActivity) requireActivity();
+        mainActivity.replaceFragment(LogUpFragment.newInstance());
+    }
 }

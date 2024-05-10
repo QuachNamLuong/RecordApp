@@ -26,7 +26,20 @@
             android:title="Thống kê" />
     </group>
 
-    <group android:id="@+id/group3">
+    <group
+        android:id="@+id/group3">
+        <item
+            android:id="@+id/sharing_item"
+            android:icon="@drawable/baseline_cloud_upload_24"
+            android:title="Upload bản ghi" />
+
+        <item
+            android:id="@+id/download_sharing_item"
+            android:icon="@drawable/cloud_download"
+            android:title="Tải bản ghi được chia sẻ" />
+    </group>
+
+    <group android:id="@+id/group4">
         <item
             android:id="@+id/account_item"
             android:icon="@drawable/account"

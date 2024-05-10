@@ -54,6 +54,7 @@
         android:hint="Phút"
         android:inputType="number"
         android:maxLength="2"
+        android:text="1"
         app:layout_constraintBottom_toTopOf="@id/tv_selected_time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tv_record_time"

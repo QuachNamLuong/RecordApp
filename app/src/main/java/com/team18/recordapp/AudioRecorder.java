@@ -215,7 +215,7 @@ public class AudioRecorder {
         Date currentDate = new Date(currentTimeMillis);
 
         String formattedDateTime = sdf.format(currentDate);
-        String filename = "recording_" + formattedDateTime + ".mp3";
+        String filename =  formattedDateTime + ".mp3";
         String path = new File(recordingsDir, filename).getAbsolutePath();
         mediaRecorder.setOutputFile(path);
     }

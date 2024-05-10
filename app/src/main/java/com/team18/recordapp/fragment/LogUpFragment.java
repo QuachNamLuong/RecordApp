@@ -1,6 +1,7 @@
 package com.team18.recordapp.fragment;
 
-import android.content.Intent;
+import static android.content.Context.MODE_PRIVATE;
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,11 +12,15 @@ import android.view.ViewGroup;
 
 import com.team18.recordapp.MainActivity;
 import com.team18.recordapp.R;
+
+
 import androidx.annotation.NonNull;
 
 import android.app.ProgressDialog;
+import android.content.SharedPreferences;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,24 +34,16 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.team18.recordapp.User;
 
 import java.util.concurrent.TimeUnit;
 
+public class LogUpFragment extends Fragment {
 
-public class EnterOtpFragment extends Fragment {
-    private static final String ARG_EMAIL = "email";
-    private static final String ARG_PASSWORD = "password";
-
-    // TODO: Rename and change types of parameters
-    private String email;
-    private String password;
-
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private FirebaseAuth mAuth;
     private EditText edtOtp;
     private Button btnVerifyOtp;
@@ -54,40 +51,68 @@ public class EnterOtpFragment extends Fragment {
     private String mVerificationId;
     TextView reSendOtp;
     ProgressDialog mProgress;
-    public EnterOtpFragment() {
+    EditText edtEmail;
+    EditText edtPassword;
+    EditText edtPhone;
+    EditText edtSharePass;
+    Button btn;
+    RelativeLayout showUpEnterOpt;
+    private SharedPreferences loginPreferences;
+    private SharedPreferences.Editor loginPrefsEditor;
+    private Boolean saveLogin;
+
+    private SharedPreferences loginSharePreferences;
+    private SharedPreferences.Editor loginSharePrefsEditor;
+    private Boolean saveLoginShare;
+
+    public LogUpFragment() {
         // Required empty public constructor
     }
 
+    public static LogUpFragment newInstance() {
+        LogUpFragment fragment = new LogUpFragment();
 
-    public static EnterOtpFragment newInstance(String param1, String param2) {
-        EnterOtpFragment fragment = new EnterOtpFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_EMAIL, param1);
-        args.putString(ARG_PASSWORD, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            email = getArguments().getString(ARG_EMAIL);
-            password = getArguments().getString(ARG_PASSWORD);
-        }
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_enter_otp, container, false);
-        edtOtp = view.findViewById(R.id.edt_otp);
-        btnVerifyOtp = view.findViewById(R.id.btn_verify_otp);
-        reSendOtp = (TextView) view.findViewById(R.id.reSendOtp);
 
+        View view = inflater.inflate(R.layout.fragment_log_up, container, false);
+        edtEmail = view.findViewById(R.id.username);
+        edtPassword = view.findViewById(R.id.password);
+        edtPhone = view.findViewById(R.id.numPhone);
+        edtSharePass = view.findViewById(R.id.sharePass);
+
+        loginPreferences = requireContext().getSharedPreferences("loginPrefs", MODE_PRIVATE);
+        loginPrefsEditor = loginPreferences.edit();
+        saveLogin = loginPreferences.getBoolean("saveLogin", false);
+        loginSharePreferences = requireContext().getSharedPreferences("loginSharePrefs", MODE_PRIVATE);
+        loginSharePrefsEditor = loginSharePreferences.edit();
+        saveLoginShare = loginSharePreferences.getBoolean("saveLoginShare", false);
+
+        btn = view.findViewById(R.id.logUpBtn);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showUpEnterOpt.setVisibility(View.VISIBLE);
+                getPhone();
+            }
+        });
+
+        edtOtp = view.findViewById(R.id.edtOtpLogUp);
+        btnVerifyOtp = view.findViewById(R.id.btnVerifyOtpLogUp);
+        reSendOtp = (TextView) view.findViewById(R.id.reSendOtpLogUp);
+        showUpEnterOpt = (RelativeLayout) view.findViewById(R.id.showUpEnterOpt);
         mAuth = FirebaseAuth.getInstance();
-        getPhone();
+
         btnVerifyOtp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,37 +131,63 @@ public class EnterOtpFragment extends Fragment {
                 Toast.makeText(requireActivity(), "Opt code have been resend", Toast.LENGTH_SHORT).show();
             }
         });
-
         return view;
     }
 
-    private void getPhone() {
-        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference parentRef = FirebaseDatabase.getInstance().getReference().child("list_users");
+    private void logUp() {
+        mAuth = FirebaseAuth.getInstance();
 
-        String targetKey = firebaseUser.getUid();
+        String email = edtEmail.getText().toString().trim();
+        String password = edtPassword.getText().toString().trim();
 
-        DatabaseReference childRef = parentRef.child(targetKey);
+        mProgress = new ProgressDialog(requireContext());
+        mProgress.setMessage("Registering...");
+        mProgress.show();
 
-        childRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                User user = dataSnapshot.getValue(User.class);
-                mPhoneNumber = user.getPhone();
-                String phone = "+84"+mPhoneNumber.substring(1);
-                verifyPhone(phone);
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(requireActivity(), new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            FirebaseUser firebaseUser = mAuth.getCurrentUser();
+                            saveUser(firebaseUser.getUid());
+                            clearRememberMe();
+                            Toast.makeText(requireActivity(), "Register successfully", Toast.LENGTH_SHORT).show();
+                            MainActivity mainActivity = (MainActivity) requireActivity();
+                            mainActivity.replaceFragment(RecordFragment.newInstance());
+                            mProgress.dismiss();
+                        } else {
+                            Toast.makeText(requireActivity(), "Authentication failed. Your email password need 6 chars!!",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
+    private void saveUser(String uid) {
+        String email = edtEmail.getText().toString().trim();
+        String password = edtPassword.getText().toString().trim();
+        String phone = edtPhone.getText().toString().trim();
+        String sharePass = edtSharePass.getText().toString().trim();
+        User user = new User(uid,email, password, phone, sharePass);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("list_users");
+
+        myRef.child(uid).setValue(user);
+    }
+
+    private void getPhone() {
+        mPhoneNumber = edtPhone.getText().toString().trim();
+        String phone = "+84"+mPhoneNumber.substring(1);
+        verifyPhone(phone);
+    }
 
     private void onClickSendOtp(String strOtp) {
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, strOtp);
         signInWithPhoneAuthCredential(credential);
     }
+
 
     private void verifyPhone(String strPhoneNum) {
         PhoneAuthOptions options =
@@ -147,11 +198,14 @@ public class EnterOtpFragment extends Fragment {
                         .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                             @Override
                             public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+
                             }
+
                             @Override
                             public void onVerificationFailed(@NonNull FirebaseException e) {
                                 Toast.makeText(requireActivity(), "invalid", Toast.LENGTH_SHORT).show();
                             }
+
                             @Override
                             public void onCodeSent(@NonNull String verificationId, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                                 super.onCodeSent(verificationId, forceResendingToken);
@@ -162,15 +216,13 @@ public class EnterOtpFragment extends Fragment {
     }
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
-        mProgress = new ProgressDialog(requireActivity());
-        mProgress.setMessage("");
-        mProgress.show();
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(requireActivity(), new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            logIn();
+                            Toast.makeText(requireActivity(), "Log up", Toast.LENGTH_SHORT).show();
+                            logUp();
                         } else {
                             Toast.makeText(requireActivity(), "Double check Opt code or your code is time out.", Toast.LENGTH_SHORT).show();
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
@@ -180,28 +232,10 @@ public class EnterOtpFragment extends Fragment {
                 });
     }
 
-
-//    private void goToAudioSharingActivity() {
-//        Intent intent = new Intent(EnterOtpActivity.this, AudioSharingActivity.class);
-//        startActivity(intent);
-//    }
-
-    private void logIn() {
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(requireActivity(), new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            MainActivity mainActivity = (MainActivity) requireActivity();
-                            mProgress.dismiss();
-                            Intent intent = new Intent(requireContext(), MainActivity.class);
-                            startActivity(intent);
-                            requireActivity().finish();
-                        } else {
-                            Toast.makeText(requireActivity(), "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+    private void clearRememberMe() {
+        loginPrefsEditor.clear();
+        loginPrefsEditor.commit();
+        loginSharePrefsEditor.clear();
+        loginSharePrefsEditor.commit();
     }
 }

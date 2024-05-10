@@ -57,7 +57,7 @@ public class ScheduleFragment extends Fragment {
     private String selectedTime = "00:00";
     private Button btnCancel;
     private EditText edtTimeRecord;
-    private String recordTime = "0";
+    private String recordTime = "1";
     private File settingFile;
     private  PendingIntent pendingIntent;
 
@@ -184,7 +184,7 @@ public class ScheduleFragment extends Fragment {
     private void initSettingFile() {
         try {
             FileOutputStream fos = new FileOutputStream(settingFile);
-            String settingContent = "false,00:00,0";
+            String settingContent = "false,00:00,1";
             fos.write(settingContent.getBytes());
             fos.close();
         } catch (IOException e) {
@@ -196,7 +196,7 @@ public class ScheduleFragment extends Fragment {
         if (settingFile.exists()) {
             try {
                 FileOutputStream fos = new FileOutputStream(settingFile);
-                recordTime = (recordTime.isEmpty())? "0" : recordTime;
+                recordTime = (recordTime.isEmpty())? "1" : recordTime;
                 String settingContent = isSetTime + "," + selectedTime + "," + recordTime;
                 fos.write(settingContent.getBytes());
                 fos.close();

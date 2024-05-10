@@ -7,6 +7,7 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.team18.recordapp.MainActivity;
 import com.team18.recordapp.service.RecordingService;
 import com.team18.recordapp.util.Clock;
 
@@ -19,22 +20,10 @@ public class StartRecordReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
 
         if (intent.getAction() == "schedule_record") {
-            Toast.makeText(context, "fooString", Toast.LENGTH_LONG).show();
-            Intent intent1 = new Intent(context, RecordingService.class);
+            Intent newIntent = new Intent(context, MainActivity.class);
             int time = intent.getIntExtra("time", -1);
-            intent1.putExtra("time", time);
-            context.startService(intent1);
-            Clock.start();
-
-
-            Timer timer = new Timer();
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    context.stopService(intent1);
-                    Clock.stop();
-                }
-            }, (long) time * 1000 * 60);
+            newIntent.putExtra("time", time);
+            context.startActivity(newIntent);
         }
     }
 }

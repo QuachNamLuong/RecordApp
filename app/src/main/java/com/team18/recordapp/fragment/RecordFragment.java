@@ -3,6 +3,7 @@ package com.team18.recordapp.fragment;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -164,6 +165,19 @@ public class RecordFragment extends Fragment {
 
         startTime = 0; // Reset startTime
         timeTextView.setText("00:00:00"); // Đặt lại thời gian đếm thành 00:00:00
+    }
+
+    public void recordFllowMinute(int minute) {
+        Handler handler = new Handler();
+        startRecord();
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                stopRecord();
+            }
+        };
+
+        handler.postDelayed(runnable, minute * 60 * 1000);
     }
 
     private void stopRecord() {
