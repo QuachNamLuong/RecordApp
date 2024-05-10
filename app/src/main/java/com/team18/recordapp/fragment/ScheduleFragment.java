@@ -97,25 +97,12 @@ public class ScheduleFragment extends Fragment {
         edtTimeRecord.setText(selectedTime);
         intent = new Intent(requireActivity(), MainActivity.class);
         readSettingFile();
-        setVisible();
-    }
-
-    private void setVisible() {
-        if (isSetTime) {
-            btnCancel.setVisibility(View.VISIBLE);
-            btnCancel.setVisibility(View.INVISIBLE);
-        }
-        else {
-            btnCancel.setVisibility(View.INVISIBLE);
-            btnCancel.setVisibility(View.VISIBLE);
-        }
     }
 
     private void setEvent() {
 
         btnCancel.setOnClickListener(v -> {
             isSetTime=false;
-            setVisible();
             edtTimeRecord.setText("");
             tvSelectedTime.setText("Thời gian đã chọn:");
             intent.putExtra("is_set_time", false);
@@ -136,7 +123,6 @@ public class ScheduleFragment extends Fragment {
                 }
                 else {
                     isSetTime = true;
-                    setVisible();
                     recordTime = edtTimeRecord.getText().toString().trim();
                     selectedTime = String.format(Locale.getDefault(),
                             "%02d:%02d",
@@ -159,7 +145,9 @@ public class ScheduleFragment extends Fragment {
 
                         Calendar cal = Calendar.getInstance();
                         cal.set(Calendar.HOUR_OF_DAY, hour);
-                        cal.set(Calendar.MINUTE, minute);// Đặt thông báo sau 10 giây
+                        cal.set(Calendar.MINUTE, minute);
+                        cal.set(Calendar.SECOND, 0);
+                        cal.set(Calendar.MILLISECOND, 0);
 
                         alarmManager = (AlarmManager) requireContext().getSystemService(Context.ALARM_SERVICE);
                         alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);

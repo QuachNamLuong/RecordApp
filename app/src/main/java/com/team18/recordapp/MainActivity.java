@@ -19,6 +19,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.team18.recordapp.fragment.AccountFragment;
 import com.team18.recordapp.fragment.AudioSharingFragment;
 import com.team18.recordapp.fragment.ListRecordFragment;
 import com.team18.recordapp.fragment.LogInDownloadShareFragment;
@@ -48,15 +49,6 @@ public class MainActivity extends AppCompatActivity {
         setEvent();
         isLogin();
         replaceFragment(recordFragment);
-        Intent intent = getIntent();
-        if (intent != null) {
-            if (intent.hasExtra("time")) {
-                int time = intent.getIntExtra("time", 0);
-                if (time > 0) {
-                    recordFragment.recordFllowMinute(time);
-                }
-            }
-        }
     }
 
     @Override
@@ -91,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (itemId == R.id.statistics_item) {
                     replaceFragment(ListRecordFragment.newInstance());
                 } else if (itemId == R.id.account_item) {
-                    replaceFragment(ListRecordFragment.newInstance());
+                    replaceFragment(AccountFragment.newInstance());
                 } else if (itemId == R.id.login_item) {
                     replaceFragment(LogInFragment.newInstance());
                 } else if (itemId == R.id.logout_item) {

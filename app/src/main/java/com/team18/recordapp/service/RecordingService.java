@@ -19,6 +19,7 @@ import androidx.core.app.NotificationCompat;
 import com.team18.recordapp.AudioRecorder;
 import com.team18.recordapp.MainActivity;
 import com.team18.recordapp.R;
+import com.team18.recordapp.broadcast.StopRecordingService;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -76,34 +77,36 @@ public class RecordingService extends Service {
         Intent notificationIntent = new Intent(this, MainActivity.class);
 
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-        NotificationChannel channel = null;
+
+        // Create notification channel if API level is appropriate
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            channel = new NotificationChannel(CHANNEL_ID, CHANNEL_ID, NotificationManager.IMPORTANCE_LOW);
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, CHANNEL_ID, NotificationManager.IMPORTANCE_LOW);
             getSystemService(NotificationManager.class).createNotificationChannel(channel);
         }
 
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            Notification.Builder builder = null;
-            builder = new Notification.Builder(this, CHANNEL_ID)
-                    .setContentTitle("Recording Service")
-                    .setContentText("Recording in progress")
-                    .setSmallIcon(R.drawable.mic)
-                    .setContentIntent(pendingIntent);
-        }
-        else {
-            NotificationCompat.Builder builder = null;
-            builder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                    .setContentTitle("Recording Service")
-                    .setContentText("Recording in progress")
-                    .setSmallIcon(R.drawable.mic)
-                    .setContentIntent(pendingIntent);
-            return builder.build();
+        NotificationCompat.Builder builder;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            builder = new NotificationCompat.Builder(this, CHANNEL_ID);
+        } else {
+            builder = new NotificationCompat.Builder(this);
         }
 
-        return null;
+        // Create intent for the stop action button
+        Intent stopIntent = new Intent(this, StopRecordingService.class);
+        stopIntent.setAction("stop_recording");
+        PendingIntent stopPendingIntent = PendingIntent.getBroadcast(this, 0, stopIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        // Add the stop action button to the notification
+        builder.addAction(R.drawable.stop, "Dừng ghi âm", stopPendingIntent);
+
+        // Build the notification
+        return builder.setContentTitle("Recording Service")
+                .setContentText("Recording in progress")
+                .setSmallIcon(R.drawable.mic)
+                .setContentIntent(pendingIntent)
+                .build();
     }
+
 
     private void initSettingFile() {
         try {

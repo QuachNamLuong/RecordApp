@@ -15,7 +15,7 @@
         android:layout_marginRight="10dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        android:src="@drawable/baseline_cloud_upload_24" />
+        android:src="@drawable/icon_upload" />
 
     <ListView
         android:id="@+id/listView"

@@ -41,29 +41,17 @@ import com.team18.recordapp.User;
 import java.util.concurrent.TimeUnit;
 
 public class LogUpFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private FirebaseAuth mAuth;
-    private EditText edtOtp;
-    private Button btnVerifyOtp;
-    private String mPhoneNumber;
-    private String mVerificationId;
-    TextView reSendOtp;
-    ProgressDialog mProgress;
-    EditText edtEmail;
-    EditText edtPassword;
-    EditText edtPhone;
-    EditText edtSharePass;
-    Button btn;
-    RelativeLayout showUpEnterOpt;
-    private SharedPreferences loginPreferences;
-    private SharedPreferences.Editor loginPrefsEditor;
-    private Boolean saveLogin;
+    private Button btnVerifyOtp, btnLogUp;
+    private String mPhoneNumber, mVerificationId;
+    private TextView reSendOtp;
+    private ProgressDialog mProgress;
+    private EditText edtEmail, edtPassword, edtPhone, edtSharePass, edtOtp, edtPasswordConfirm, edtSharePassConfirm;
+    private RelativeLayout showUpEnterOpt;
+    private SharedPreferences loginPreferences, loginSharePreferences;
+    private SharedPreferences.Editor loginPrefsEditor, loginSharePrefsEditor;
+    private Boolean saveLogin, saveLoginShare;
 
-    private SharedPreferences loginSharePreferences;
-    private SharedPreferences.Editor loginSharePrefsEditor;
-    private Boolean saveLoginShare;
 
     public LogUpFragment() {
         // Required empty public constructor
@@ -71,7 +59,6 @@ public class LogUpFragment extends Fragment {
 
     public static LogUpFragment newInstance() {
         LogUpFragment fragment = new LogUpFragment();
-
         return fragment;
     }
 
@@ -90,6 +77,8 @@ public class LogUpFragment extends Fragment {
         edtPassword = view.findViewById(R.id.password);
         edtPhone = view.findViewById(R.id.numPhone);
         edtSharePass = view.findViewById(R.id.sharePass);
+        edtPasswordConfirm = view.findViewById(R.id.password_confirm);
+        edtSharePassConfirm = view.findViewById(R.id.sharePass_confirm);
 
         loginPreferences = requireContext().getSharedPreferences("loginPrefs", MODE_PRIVATE);
         loginPrefsEditor = loginPreferences.edit();
@@ -98,10 +87,14 @@ public class LogUpFragment extends Fragment {
         loginSharePrefsEditor = loginSharePreferences.edit();
         saveLoginShare = loginSharePreferences.getBoolean("saveLoginShare", false);
 
-        btn = view.findViewById(R.id.logUpBtn);
-        btn.setOnClickListener(new View.OnClickListener() {
+        btnLogUp = view.findViewById(R.id.logUpBtn);
+        btnLogUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!isValidInput())  {
+                    Toast.makeText(requireActivity(), "Thông tin không hợp lệ", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 showUpEnterOpt.setVisibility(View.VISIBLE);
                 getPhone();
             }
@@ -117,7 +110,7 @@ public class LogUpFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String strOtp = edtOtp.getText().toString().trim();
-                if(strOtp.length() == 6) {
+                if (strOtp.length() == 6) {
                     onClickSendOtp(strOtp);
                 } else {
                     Toast.makeText(requireActivity(), "Enter Opt code.", Toast.LENGTH_SHORT).show();
@@ -133,6 +126,40 @@ public class LogUpFragment extends Fragment {
         });
         return view;
     }
+
+    private boolean isValidInput() {
+        if (edtEmail.getText().toString().trim().isEmpty()
+                || edtPassword.getText().toString().trim().isEmpty()
+                || edtPhone.getText().toString().trim().isEmpty()
+                || edtSharePass.getText().toString().trim().isEmpty()
+                || edtSharePass.getText().toString().trim().length() < 3)
+        {
+            Toast.makeText(requireActivity(), "Bạn nhập chưa đủ thông tin", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (!isPasswordValid(edtPassword, edtPasswordConfirm)) {
+            return false;
+        }
+
+        if (!isPasswordValid(edtSharePass, edtSharePassConfirm)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private boolean isPasswordValid(EditText edtPassword, EditText edtPasswordConfirm) {
+        String password = edtSharePass.getText().toString().trim();
+        String confirmPassword = edtSharePassConfirm.getText().toString().trim();
+        if (!password.equals(confirmPassword)) {
+            edtPasswordConfirm.setError("Mật khẩu nhập lại không đúng");
+            return false;
+        }
+        return true;
+    }
+
+
 
     private void logUp() {
         mAuth = FirebaseAuth.getInstance();
@@ -169,7 +196,7 @@ public class LogUpFragment extends Fragment {
         String password = edtPassword.getText().toString().trim();
         String phone = edtPhone.getText().toString().trim();
         String sharePass = edtSharePass.getText().toString().trim();
-        User user = new User(uid,email, password, phone, sharePass);
+        User user = new User(uid, email, password, phone, sharePass);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("list_users");
@@ -179,7 +206,7 @@ public class LogUpFragment extends Fragment {
 
     private void getPhone() {
         mPhoneNumber = edtPhone.getText().toString().trim();
-        String phone = "+84"+mPhoneNumber.substring(1);
+        String phone = "+84" + mPhoneNumber.substring(1);
         verifyPhone(phone);
     }
 

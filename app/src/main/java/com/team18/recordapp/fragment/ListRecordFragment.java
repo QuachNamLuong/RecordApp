@@ -100,6 +100,7 @@ public class ListRecordFragment extends Fragment {
                 int visible = isChecked ? View.VISIBLE : View.GONE;
                 audioAdapter.notifyDataSetChanged();
                 btnDelete.setVisibility(visible);
+                musicBox.setVisibility(View.GONE);
             }
 
             @Override

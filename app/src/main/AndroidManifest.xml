@@ -30,6 +30,8 @@
         <receiver
             android:name=".broadcast.StartRecordReceiver"
             android:process=":remote" />
+        <receiver android:name=".broadcast.StopRecordingService"
+            android:process=":remote"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"

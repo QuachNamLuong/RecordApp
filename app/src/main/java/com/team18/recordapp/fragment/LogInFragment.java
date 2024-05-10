@@ -171,10 +171,6 @@ public class LogInFragment extends Fragment {
         mainActivity.replaceFragment(EnterOtpFragment.newInstance(email, password));
     }
 
-//    private void goToAudioSharingActivity() {
-//        Intent intent = new Intent(requireActivity(), AudioSharingActivity.class);
-//        startActivity(intent);
-//    }
 
     private void goToLogUpActivity() {
         MainActivity mainActivity = (MainActivity) requireActivity();

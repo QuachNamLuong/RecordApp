@@ -32,7 +32,8 @@
         android:id="@+id/music_box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_weight="0.1">
 
         <ImageButton
             android:id="@+id/btn_close_play_audio"

@@ -190,7 +190,7 @@ public class DownloadShareFragment extends Fragment {
                     File internalStorageDir = getContext().getFilesDir();
                     String subdirectory = "recordings"; // Example subdirectory name
                     File recordingsDir = new File(internalStorageDir, subdirectory);
-                    downloadFile(requireContext(), i, subdirectory, url);
+                    downloadFile(requireContext(), i, recordingsDir.getAbsolutePath(), url);
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
